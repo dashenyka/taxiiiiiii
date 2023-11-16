@@ -1,5 +1,19 @@
-# Object file
-*.o
+def zatrat(N, rasst, tarif):
+    zatratt = float('inf')
+    massiv = []
 
-# Ada Library Information
-*.ali
+    matrixazatrat = [[0] * N for _ in range(N)]
+
+    for i in range(N):
+        for j in range(N):
+            matrixazatrat[i][j] = rasst[j] * tarif[i]
+
+    for i in range(N):
+        raspolozhenie = sorted(range(N), key=lambda x: matrixazatrat[i][x])
+        tekzatrat = sum(matrixazatrat[j][raspolozhenie[j]] for j in range(N))
+
+        if tekzatrat < zatratt:
+            zatratt = tekzatrat
+            massiv = [x + 1 for x in raspolozhenie]
+
+    return massiv, zatratt
