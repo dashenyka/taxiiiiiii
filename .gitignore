@@ -17,3 +17,12 @@ def zatrat(N, rasst, tarif):
             massiv = [x + 1 for x in raspolozhenie]
 
     return massiv, zatratt
+
+
+N = int(input("Введите количество сотрудников: "))
+rasst = list(map(int, input("Введите расстояния от работы до домов: ").split()))
+tarif = list(map(int, input("Введите тарифы за проезд в такси: ").split()))
+
+raspolozhenie, zatratt = zatrat(N, rasst, tarif)
+print("Номера рассадки: " + " ".join(map(str, raspolozhenie)))
+print(f"{zatratt:.2f} руб.")
