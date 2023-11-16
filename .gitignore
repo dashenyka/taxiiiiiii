@@ -25,4 +25,7 @@ tarif = list(map(int, input("Введите тарифы за проезд в т
 
 raspolozhenie, zatratt = zatrat(N, rasst, tarif)
 print("Номера рассадки: " + " ".join(map(str, raspolozhenie)))
-print(f"{zatratt:.2f} руб.")
+if zatratt < 1000:
+    print(f"{zatratt:.2f} рубля")
+else:
+    print(f"{zatratt:.2f} рублей")
